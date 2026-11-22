@@ -1,0 +1,7 @@
+# 1. Virtual environment activate karein (Mac/Linux)
+source venv/bin/activate
+
+# (Agar aap Windows par hain toh yeh use karein: venv\Scripts\activate)
+
+# 2. FastAPI server ko auto-reload ke sath start karein
+uvicorn app.main:app --reload

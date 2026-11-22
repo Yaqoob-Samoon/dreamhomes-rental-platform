@@ -1,0 +1,81 @@
+### 1. Backend (`backend/requirements.txt`)
+
+Create or update `requirements.txt` inside your `backend/` folder and paste the following (covers FastAPI, PostgreSQL, Cloudinary, JWT/Auth, and your Scikit-Learn AI/ML stack):
+
+```text
+fastapi
+uvicorn[standard]
+sqlalchemy
+psycopg2-binary
+pydantic
+email-validator
+python-multipart
+python-dotenv
+python-jose[cryptography]
+passlib[bcrypt]
+cloudinary
+scikit-learn
+numpy
+joblib
+pandas
+
+```
+
+**Install command:**
+
+```bash
+cd backend
+source venv/bin/activate
+pip install -r requirements.txt
+
+```
+
+*(Tip: To export the exact versions currently installed in your local `venv`, run `pip freeze > requirements.txt` while your virtual environment is active.)*
+
+---
+
+
+
+
+### 2. Frontend (`frontend/package.json`)
+
+React/Vite projects do not use `requirements.txt`—they use **`package.json`**, which is already in your `frontend/` folder.
+
+If you need a clean `package.json` dependency block to copy-paste (matching React, Router, Axios, Lucide icons, Vite, and Tailwind CSS):
+
+```json
+{
+  "name": "dreamhomes-frontend",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "axios": "^1.7.0",
+    "lucide-react": "^0.400.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-router-dom": "^6.26.0"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.3.1",
+    "autoprefixer": "^10.4.19",
+    "postcss": "^8.4.39",
+    "tailwindcss": "^3.4.4",
+    "vite": "^5.3.4"
+  }
+}
+
+```
+
+**Install command:**
+
+```bash
+cd frontend
+npm install
+
+```

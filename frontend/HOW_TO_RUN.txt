@@ -1,0 +1,197 @@
+====================================================================
+
+        DREAMHOMES - AI-POWERED REAL ESTATE RENTAL PLATFORM
+
+                        HOW TO RUN GUIDE
+
+====================================================================
+
+
+
+1. PREREQUISITES
+
+--------------------------------------------------------------------
+
+Make sure the following are installed and running on your machine:
+
+- Python 3.9+
+
+- Node.js & npm
+
+- PostgreSQL (must be running in the background via Postgres.app,
+
+  pgAdmin, or system service)
+
+
+
+
+
+2. PROJECT STRUCTURE
+
+--------------------------------------------------------------------
+
+rental-platform/
+
+├── backend/    -> FastAPI Server, PostgreSQL Models & AI/ML Engine
+
+├── frontend/   -> React + Vite Web Application
+
+└── ml/         -> Optional ML notes/experiments (not needed to run)
+
+
+
+
+
+3. STEP-BY-STEP STARTUP INSTRUCTIONS
+
+--------------------------------------------------------------------
+
+You will need TWO separate terminal windows/tabs (one for Backend,
+
+one for Frontend). Start from the root `rental-platform` folder.
+
+
+
+
+
+[TERMINAL 1] START THE BACKEND (FastAPI + AI Models)
+
+--------------------------------------------------------------------
+
+1. Navigate to the backend directory:
+
+   cd backend
+
+
+
+2. Activate the Python virtual environment:
+
+   - On Mac / Linux:
+
+     source venv/bin/activate
+
+
+
+   - On Windows (Command Prompt):
+
+     venv\Scripts\activate
+
+
+
+   - On Windows (PowerShell):
+
+     .\venv\Scripts\Activate.ps1
+
+
+
+3. (Optional - First Time Only) Install dependencies if needed:
+
+   pip install -r requirements.txt
+
+
+
+4. (Optional) Ensure the AI Rent Prediction model file exists:
+
+   Make sure `ai_rent_model.pkl` is inside the `backend/` folder.
+
+   If it is missing, generate it by running:
+
+   python train_model.py
+
+
+
+5. Start the FastAPI server:
+
+   uvicorn app.main:app --reload
+
+
+
+-> Backend API will run at:      http://127.0.0.1:8000
+
+-> Interactive API Docs (Swagger): http://127.0.0.1:8000/docs
+
+
+
+
+
+[TERMINAL 2] START THE FRONTEND (React + Vite)
+
+--------------------------------------------------------------------
+
+1. Open a NEW terminal window/tab in the root `rental-platform` folder.
+
+
+
+2. Navigate to the frontend directory:
+
+   cd frontend
+
+
+
+3. (Optional - First Time Only) Install Node packages:
+
+   npm install
+
+
+
+4. Start the Vite development server:
+
+   npm run dev
+
+
+
+-> Frontend Website will run at: http://localhost:5173
+
+
+
+
+
+4. NOTE ABOUT THE AI & ML FEATURES
+
+--------------------------------------------------------------------
+
+You do NOT need to run anything inside the `ml/` folder. All three
+
+AI features are fully integrated into the FastAPI backend:
+
+1. Fair Rent Prediction (Random Forest Regressor) -> Loaded via `.pkl`
+
+2. Property Recommendations (K-Nearest Neighbors) -> Trained live on DB
+
+3. Smart AI Chatbot (NLP + Context Memory)        -> Live API endpoint
+
+
+
+
+
+5. QUICK TROUBLESHOOTING
+
+--------------------------------------------------------------------
+
+- Error: "Could not read package.json" when running npm:
+
+  Make sure you are inside the `frontend/` folder, NOT `backend/`.
+
+  `backend/` uses Python (`uvicorn`), while `frontend/` uses `npm`.
+
+
+
+- Error: "source: no such file or directory: venv/bin/activate":
+
+  Make sure you are inside the `backend/` folder before activating.
+
+
+
+- Error: Database connection failed:
+
+  Verify that PostgreSQL is running and your `.env` database URL
+
+  credentials in `backend/` are correct.
+
+
+
+- To stop either server:
+
+  Press `Ctrl + C` in the respective terminal.
+
+====================================================================
